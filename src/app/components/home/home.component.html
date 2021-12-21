@@ -1,1 +1,67 @@
-<p>home works!</p>
+<div class="loading-spinner" *ngIf="isLoading">
+  <mat-progress-spinner color="accent" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+<div *ngIf="!isLoading" class="country-data">
+  <div class="country-data-current">
+    <mat-card
+      class="country-data-current_card country-data-current_card--confirmed"
+    >
+      <mat-card-header>
+        <mat-card-title>Confirmed</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="country-data-current_card-content">
+        <p>
+          {{ countryData.confirmedCases }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card
+      class="country-data-current_card country-data-current_card--active"
+    >
+      <mat-card-header>
+        <mat-card-title>Active</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="country-data-current_card-content">
+        <p>
+          {{ countryData.activeCases }}
+        </p>
+      </mat-card-content></mat-card
+    >
+    <mat-card
+      class="country-data-current_card country-data-current_card--recovered"
+    >
+      <mat-card-header>
+        <mat-card-title>Recovered</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="country-data-current_card-content">
+        <p>
+          {{ countryData.recoveredCases }}
+        </p>
+      </mat-card-content></mat-card
+    >
+    <mat-card
+      class="country-data-current_card country-data-current_card--death"
+    >
+      <mat-card-header>
+        <mat-card-title>Deaths</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="country-data-current_card-content">
+        <p>
+          {{ countryData.deaths }}
+        </p>
+      </mat-card-content></mat-card
+    >
+  </div>
+  <div class="country-data-summary">
+    <table class="mat-elevation-z8 country-data-summary-table">
+      <tr
+        class="country-data-summary-table-row"
+        *ngFor="let data of summaryTable"
+      >
+        <th class="country-data-summary-table-header">{{ data.name }}</th>
+        <td>{{ data.value }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

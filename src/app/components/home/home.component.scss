@@ -1,0 +1,66 @@
+.loading-spinner{
+  display      : flex;
+  align-content: center;
+  align-items  : center;
+  width       : 80vw;
+  height      : 70vh;
+  justify-content: center;
+}
+
+
+.country-data{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &-current{
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    width: 90%;
+    padding: 5vh 0vw;
+
+    &_card{
+      // border: 1px solid black;
+      color : black;
+
+      &-content{
+        text-align: center;
+      }
+
+      &--confirmed{
+        background: blue;
+      }
+
+      &--active {background: yellow;}
+
+      &--recovered {background: green;}
+
+      &--death {background: red;}
+    }
+
+
+  }
+
+  &-summary{
+    margin-top: 10vh;
+    &-table{
+      padding: 1vw;
+      height: 50vh;
+      width: 50vw;
+
+      &-header{
+
+      }
+
+      &-row{
+        border-bottom: 1px solid whitesmoke;
+        &:last-child{
+          border-bottom: 0px;
+        }
+      }
+    }
+  }
+}

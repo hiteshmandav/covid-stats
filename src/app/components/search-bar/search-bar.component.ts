@@ -1,3 +1,4 @@
+import { FetchDataService } from './../../services/fetch-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  selectedCountry: string;
+  countryList: string[];
+  constructor(private fetchData: FetchDataService) { }
 
   ngOnInit(): void {
+    this.fetchData.getCountryList().subscribe(x => {
+      console.log(x)
+      this.countryList = x
+      this.selectedCountry = 'India'
+      this.fetchData.emitSelectedCountry(this.selectedCountry)
+    })
   }
+
+  changeSelectedCountry(countryName) {
+    this.selectedCountry = countryName;
+    this.fetchData.emitSelectedCountry(this.selectedCountry)
+}
 
 }

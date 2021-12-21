@@ -1,2 +1,19 @@
-<p>side-nav works!</p>
-<router-outlet></router-outlet>
+<mat-drawer-container class="side-nav-container">
+  <mat-drawer mode="side" opened class="side-nav-drawer">
+    <h1 class="app-name">{{ "Covid Statistics" | uppercase }}</h1>
+    <mat-divider></mat-divider>
+    <mat-list role="list" *ngFor="let item of menuItems">
+      <mat-list-item
+        routerLink="/{{ item }}"
+        role="listitem"
+        class="side-nav-drawer-item"
+      >
+        {{ item | uppercase }}
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-search-bar></app-search-bar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

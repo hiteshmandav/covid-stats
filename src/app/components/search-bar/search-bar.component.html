@@ -1,1 +1,17 @@
-<p>search-bar works!</p>
+<mat-toolbar class="search-bar">
+  <span>{{ selectedCountry }}</span>
+  <div>
+    <mat-form-field appearance="legecy">
+      <mat-label>Select a country</mat-label>
+      <mat-select
+        [ngModel]="selectedCountry"
+        (ngModelChange)="changeSelectedCountry($event)"
+        name="country"
+      >
+        <mat-option *ngFor="let country of countryList" [value]="country">
+          {{ country }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-toolbar>

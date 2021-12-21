@@ -1,0 +1,21 @@
+.side-nav{
+&-container {
+  height: 100vh;
+}
+&-drawer {
+  width: 20vw;
+  &-item {
+      cursor: pointer;
+    &:hover{
+      background-color: black;
+      transition-duration: 500ms;
+    }
+  }
+}
+}
+
+.app-name{
+  padding: 1vw;
+  text-align: center;
+  font-weight: bold;
+}
