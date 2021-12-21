@@ -14,7 +14,6 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchData.getCountryList().subscribe(x => {
-      console.log(x)
       this.countryList = x
       this.selectedCountry = 'India'
       this.fetchData.emitSelectedCountry(this.selectedCountry)

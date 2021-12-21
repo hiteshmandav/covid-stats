@@ -1,0 +1,17 @@
+.state-data{
+  &-table {
+  padding: 1vw;
+  height : 30vh;
+  width  : 25vw;
+
+  &-header {}
+
+  &-row {
+    border-bottom: 1px solid whitesmoke;
+
+    &:last-child {
+      border-bottom: 0px;
+    }
+  }
+}
+}

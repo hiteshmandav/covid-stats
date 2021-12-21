@@ -11,8 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { VaccineComponent } from './components/vaccine/vaccine.component';
-import { StatesComponent } from './components/states/states.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 /** Material imports */
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -37,6 +36,7 @@ import {MatTableModule} from '@angular/material/table';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,

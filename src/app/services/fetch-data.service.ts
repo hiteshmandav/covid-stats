@@ -32,7 +32,7 @@ export class FetchDataService {
 
   getVaccineData(country) {
     return this.httpClient.get(`https://covid-api.mmediagroup.fr/v1/vaccines?country=${country}`).pipe(
-      map((x: any) => x),
+      map((x: any) => x?.All),
     );
   }
 

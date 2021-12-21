@@ -1,5 +1,16 @@
-<p>vaccine works!</p>
+<div class="loading-spinner" *ngIf="isLoading">
+  <mat-progress-spinner color="accent" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+<div *ngIf="!isLoading" class="vaccine-data">
+      <table class="mat-elevation-z8 vaccine-data-table" *ngIf="vaccineTableData.length!==0">
+        <tr class="vaccine-data-table-row" *ngFor="let data of vaccineTableData">
+          <th class="vaccine-data-table-header">{{ data.name }}</th>
+          <td>{{ data.value }}</td>
+        </tr>
+      </table>
 
-{{selectedCountry}}
-
-{{vaccineData | json }}
+  <div *ngIf="vaccineTableData.length===0">
+    No Data Found
+  </div>
+</div>

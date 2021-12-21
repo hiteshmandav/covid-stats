@@ -1,4 +1,26 @@
-<p>states works!</p>
 
-{{selectedCountry}}
-{{stateData|json}}
+
+<div class="loading-spinner" *ngIf="isLoading">
+  <mat-progress-spinner color="accent" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+<div *ngIf="!isLoading" class="state-data">
+
+
+<mat-grid-list cols="3" rowHeight="40vh" *ngIf="stateData.length!==0">
+    <mat-grid-tile *ngFor="let state of stateData"
+    [colspan]="tile?.cols"
+    [rowspan]="tile?.rows">
+      <table class="mat-elevation-z8 state-data-table">
+        <tr class="state-data-table-row" *ngFor="let data of state">
+          <th class="state-data-table-header">{{ data.name }}</th>
+          <td>{{ data.value }}</td>
+        </tr>
+      </table>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div *ngIf="stateData.length===0">
+    No Data Found
+  </div>
+</div>

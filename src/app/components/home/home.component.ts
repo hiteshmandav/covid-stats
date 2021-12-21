@@ -1,5 +1,5 @@
 import { ReplaySubject, Subscription } from 'rxjs';
-import { CountryData, CountryDataSummary, TableData } from './../model';
+import { CaseData, CountryDataSummary, TableData } from './../model';
 import { FetchDataService } from './../../services/fetch-data.service';
 import { Component, OnChanges, OnInit } from '@angular/core';
 
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   selectedCountry: string;
   callcounter = 0;
   watchCountry = new Subscription();
-  countryData: CountryData = {
+  countryData: CaseData = {
     confirmedCases : 0,
     activeCases: 0,
     recoveredCases: 0,
@@ -60,7 +60,6 @@ export class HomeComponent implements OnInit {
         { name: 'Active Ratio', value: this.summaryData.activeRatio },
         { name: 'Recovery Ratio', value: this.summaryData.recoveryRatio },
         { name: 'Death Ratio', value: this.summaryData.deathRatio },]
-      console.log(this.callcounter)
       this.isLoading = false;
     })
   }

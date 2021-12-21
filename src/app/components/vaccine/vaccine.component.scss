@@ -1,0 +1,24 @@
+.vaccine-data {
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 80%;
+
+
+  &-table {
+    padding: 1vw;
+    height : 30vh;
+    width  : 50vw;
+
+    &-header {}
+
+    &-row {
+      border-bottom: 1px solid whitesmoke;
+
+      &:last-child {
+        border-bottom: 0px;
+      }
+    }
+  }
+}
