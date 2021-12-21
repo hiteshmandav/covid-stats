@@ -23,22 +23,28 @@
     padding: 5vh 0vw;
 
     &_card{
-      // border: 1px solid black;
-      color : black;
+      // &:hover{
+      //  transform: scale(1.2);
+      //  transition-duration: 200ms;
+      // }
 
       &-content{
         text-align: center;
       }
 
       &--confirmed{
-        background: blue;
+        color: blue;
+        border: 15px solid blue;
       }
 
-      &--active {background: yellow;}
+      &--active {color: yellow;
+      border: 15px solid yellow;}
 
-      &--recovered {background: green;}
+      &--recovered {color: green;
+      border: 15px solid green;}
 
-      &--death {background: red;}
+      &--death {color: red;
+      border: 15px solid red;}
     }
     &--grid-list{
       width: inherit;
