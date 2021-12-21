@@ -1,6 +1,16 @@
+<mat-toolbar class="search-bar" *ngIf="reactiveProperties.isHandset">
+  <span class="material-icons" (click)="drawer.toggle()">
+    menu
+  </span>
+
+  <h1 class="app-name">{{ "Covid Statistics" | uppercase }}</h1>
+
+
+</mat-toolbar>
+
 <mat-drawer-container class="side-nav-container">
-  <mat-drawer mode="side" opened class="side-nav-drawer">
-    <h1 class="app-name">{{ "Covid Statistics" | uppercase }}</h1>
+  <mat-drawer #drawer [mode]="reactiveProperties.mode" [opened] = 'reactiveProperties.isOpen' class="side-nav-drawer">
+    <h1 *ngIf="!reactiveProperties.isHandset" class="app-name">{{ "Covid Statistics" | uppercase }}</h1>
     <mat-divider></mat-divider>
     <mat-list role="list" *ngFor="let item of menuItems">
       <mat-list-item

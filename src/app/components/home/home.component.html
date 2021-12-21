@@ -4,9 +4,10 @@
 </div>
 <div *ngIf="!isLoading" class="country-data">
   <div class="country-data-current">
-    <mat-card
-      class="country-data-current_card country-data-current_card--confirmed"
-    >
+
+    <mat-grid-list class="country-data-current--grid-list" cols="4" rowHeight="10vh"  [gutterSize]="'16px'">
+      <mat-grid-tile [colspan]="tile?.cols" [rowspan]="tile?.rows">
+    <mat-card class="country-data-current_card country-data-current_card--confirmed">
       <mat-card-header>
         <mat-card-title>Confirmed</mat-card-title>
       </mat-card-header>
@@ -16,9 +17,9 @@
         </p>
       </mat-card-content>
     </mat-card>
-    <mat-card
-      class="country-data-current_card country-data-current_card--active"
-    >
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="tile?.cols" [rowspan]="tile?.rows">
+  <mat-card class="country-data-current_card country-data-current_card--active">
       <mat-card-header>
         <mat-card-title>Active</mat-card-title>
       </mat-card-header>
@@ -26,11 +27,11 @@
         <p>
           {{ countryData.activeCases }}
         </p>
-      </mat-card-content></mat-card
-    >
-    <mat-card
-      class="country-data-current_card country-data-current_card--recovered"
-    >
+      </mat-card-content>
+    </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="tile?.cols" [rowspan]="tile?.rows">
+    <mat-card class="country-data-current_card country-data-current_card--recovered">
       <mat-card-header>
         <mat-card-title>Recovered</mat-card-title>
       </mat-card-header>
@@ -38,11 +39,11 @@
         <p>
           {{ countryData.recoveredCases }}
         </p>
-      </mat-card-content></mat-card
-    >
-    <mat-card
-      class="country-data-current_card country-data-current_card--death"
-    >
+      </mat-card-content>
+    </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="tile?.cols" [rowspan]="tile?.rows">
+    <mat-card class="country-data-current_card country-data-current_card--death">
       <mat-card-header>
         <mat-card-title>Deaths</mat-card-title>
       </mat-card-header>
@@ -50,8 +51,14 @@
         <p>
           {{ countryData.deaths }}
         </p>
-      </mat-card-content></mat-card
-    >
+      </mat-card-content>
+    </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+
+
   </div>
   <div class="country-data-summary">
     <table class="mat-elevation-z8 country-data-summary-table">

@@ -2,6 +2,8 @@ import { ReplaySubject, Subscription } from 'rxjs';
 import { CaseData, CountryDataSummary, TableData } from './../model';
 import { FetchDataService } from './../../services/fetch-data.service';
 import { Component, OnChanges, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,10 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   selectedCountry: string;
-  callcounter = 0;
+  tile = {
+    cols: 3,
+    rows: 1
+  }
   watchCountry = new Subscription();
   countryData: CaseData = {
     confirmedCases : 0,
@@ -29,9 +34,26 @@ export class HomeComponent implements OnInit {
   };
 
   summaryTable: TableData[];
-  constructor(private fetchDataService: FetchDataService) { }
+  constructor(private fetchDataService: FetchDataService,private bpObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.bpObserver.observe(Breakpoints.Handset).pipe(
+    map(({ matches }) => {
+      if (matches) {
+        return {
+          cols: 2,
+          rows: 1
+        }
+      } else {
+        return {
+          cols: 1,
+          rows: 1
+        }
+      }
+    })
+  ).subscribe(x =>
+    this.tile =x
+    )
       this.watchCountry = this.fetchDataService.reciveSelectedCountry().subscribe(country => {
         this.isLoading = true;
         this.selectedCountry = country;
@@ -43,7 +65,6 @@ export class HomeComponent implements OnInit {
     this.watchCountry.unsubscribe();
    }
   fetchCountryDetails(selectedCountry) {
-    this.callcounter++
     this.fetchDataService.getCountryData(selectedCountry).subscribe(x => {
       this.countryData.confirmedCases = x?.confirmed;
       this.countryData.deaths = x?.deaths;

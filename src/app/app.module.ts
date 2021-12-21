@@ -1,3 +1,4 @@
+import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -45,6 +46,7 @@ import {MatTableModule} from '@angular/material/table';
     MatProgressSpinnerModule,
     MatCardModule,
     MatTableModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

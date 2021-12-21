@@ -19,7 +19,7 @@
     display        : flex;
     justify-content: space-between;
     align-items    : center;
-    width: 90%;
+    width: 100%;
     padding: 5vh 0vw;
 
     &_card{
@@ -40,7 +40,9 @@
 
       &--death {background: red;}
     }
-
+    &--grid-list{
+      width: inherit;
+    }
 
   }
 
